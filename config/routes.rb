@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  root 'users#index'
+  #post '/signup',  to: 'users#create'
   resources :podcasts
   resources :favorites
   resources :users

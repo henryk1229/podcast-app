@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
 
   def index
     @users = User.all
@@ -13,7 +14,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+      redirect_to users_path(@user)
+    else
+
+      flash.now[:notice] = "#{@user.errors.messages.first[0]} "+"#{@user.errors.messages.first[1][0]}"
+      render :new
+    end
   end
 
   def edit
@@ -21,7 +30,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id]).update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to users_path(@user)
+    else
+      flash.now[:notice] = "invalid update"
+      render :edit
+    end
   end
 
   def delete
@@ -34,6 +49,6 @@ private
 
 
   def user_params(*args)
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
   end
 end

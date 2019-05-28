@@ -1,6 +1,30 @@
 <h1>New User<h1>
 
   <%= form_for @user do |f| %>
-    username: <%= f.text_field :username %><br />
-    <%= f.submit %>
-  <% end %>
+  <%= f.label :first_name %>:
+  <%= f.text_field :first_name %><br />
+
+  <%= f.label :last_name %>:
+  <%= f.text_field :last_name %><br />
+
+  <%= f.label :username %>:
+  <%= f.text_field :username %><br />
+
+  <%= f.label :email %>:
+  <%= f.email_field :email %><br />
+
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br />
+
+  <% if @user.errors.any? %>
+    <div>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <%end%>
+
+  <%= f.submit %>
+<% end %>
