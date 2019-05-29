@@ -1,0 +1,28 @@
+<% provide(:title, @user.full_name) %>
+<h3>
+  <p><%= gravatar_for @user, size: 35 %>
+  <%= @user.full_name %>
+  <p><%= @user.email %>
+    <%#link to favorited podcasts %>
+    <%# if @user.favorites.any? %>
+     <h3>Favorite Podcasts: (<%#= @user.favorites.count %>)</h3>
+     <ul>
+       <%# @user.favorites.each do |favorite| %>
+       <%#display name of favorite pods %>
+       <li><%=%>
+       <%#end%>
+     </ul>
+
+   <%# end %>
+
+    <%# change to current_user(user) after debug else without rescue
+        current_user(user) isn't doing anything, hence else w/out rescue#%>
+  <% if logged_in? %>
+    <p><%= link_to "Log out", logout_path, method: :delete %>
+    <p><%= button_to "Update profile", edit_user_path(@user), method: :get %>
+    <p><%= button_to "Delete profile", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+  <% else %>
+    <p><%= link_to "Log in", login_path, method: :get %>
+  <% end %>
+
+</h3>

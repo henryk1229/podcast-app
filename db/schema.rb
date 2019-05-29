@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_151621) do
+ActiveRecord::Schema.define(version: 2019_05_29_154705) do
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "users_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "podcasts_id"
-    t.index ["users_id"], name: "index_favorites_on_users_id"
+    t.integer "podcast_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "podcasts", force: :cascade do |t|
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 2019_05_29_151621) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "remember_digest"
   end
 
 end
