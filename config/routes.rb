@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'sessions#new'
   get 'sessions/new'
-  root 'users#index'
   #post '/signup',  to: 'users#create'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
