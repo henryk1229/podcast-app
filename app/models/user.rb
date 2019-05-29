@@ -17,7 +17,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   #relations
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :podcasts, through: :favorites
 
   #methods
@@ -48,4 +48,7 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  
+
 end
