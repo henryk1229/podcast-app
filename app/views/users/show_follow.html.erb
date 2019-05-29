@@ -1,8 +1,8 @@
 <% provide(:title, @title) %>
       <%= gravatar_for @user, size: 30 %>
-      <h3><%= @user.full_name %></h3>
-      <p><%= link_to "view my profile", @user %>
-      <p><b>Favorite Podcasts:</b> <%= @user.podcasts.count %>
+      <h3><%= @user.full_name %>'s <%= @title%></h3>
+      <%#<p><%= link_to "view my profile", @user %>
+      <%#<p><b>Favorite Podcasts:</b> <%= @user.podcasts.count %>
 
       <% if @users.any? %>
         <div>

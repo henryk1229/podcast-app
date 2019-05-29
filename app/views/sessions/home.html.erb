@@ -1,29 +1,4 @@
-<h1> Welcome to the Podcast App!</h1>
-  <% if !logged_in? %>
-    <h3>Please log in</h3>
 
-        <%= form_for(:session, url: login_path) do |f| %>
-
-          <p><%= f.label :username %>:
-          <p><%= f.text_field :username%>
-
-          <p><%= f.label :password %>:
-          <p><%= f.password_field :password%>
-
-          <p><%= f.label :remember_me do %>
-          <p><%= f.check_box :remember_me %>
-            <span>Remember me on this computer</span>
-          <% end %>
-
-          <%if flash.now[:message]%>
-            <p><%= flash.now[:message] %>
-          <%end%>
-
-          <p><div><%= f.submit "Log in"%>
-          <%end%>
-
-        <p>New user? <%= link_to "Sign up!", signup_path %></p>
-    <%else %>
-      <%= link_to "Visit Podcasts", podcasts_path, method: :get%>
-
-<% end %>
+      <h3> Welcome to the Podcast App, <%=@user.full_name%>!
+        <p><%= link_to "view profile", @user %>
+        <p><%= link_to "Visit Podcasts", podcasts_path, method: :get%>
