@@ -1,2 +1,9 @@
 <h1>All podcasts<h1>
-<%=  @podcasts %>
+
+<% @podcasts.each do |podcast| %>
+<%= podcast.title %><br>
+<%= podcast.publisher %><br>
+<%= podcast.total_episodes %><br>
+<%= podcast.description %> <br>
+<%= podcast.listennotes_url %><br>
+<%end%>

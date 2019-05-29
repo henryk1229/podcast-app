@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_133921) do
+ActiveRecord::Schema.define(version: 2019_05_29_151621) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "users_id"
@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 2019_05_28_133921) do
   end
 
   create_table "podcasts", force: :cascade do |t|
-    t.string "podcast"
-    t.string "episode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "publisher"
+    t.integer "total_episodes"
+    t.text "description"
+    t.string "listennotes_url"
   end
 
   create_table "users", force: :cascade do |t|
