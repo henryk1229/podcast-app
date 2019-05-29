@@ -19,12 +19,22 @@ class User < ApplicationRecord
   #relations
   has_many :favorites, dependent: :destroy
   has_many :podcasts, through: :favorites
+  has_many :active_follows, class_name:  "Follow",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :passive_follows, class_name:  "Follow",
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
+  has_many :following, through: :active_follows, source: :followed
+  has_many :followers, through: :passive_follows, source: :follower
 
-  #methods
+  #basic methods
 
   def full_name
     "#{self.first_name} "+"#{self.last_name}"
   end
+
+  #login/auth
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -53,6 +63,19 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  #relationship methods
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
 
 
 end
