@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 2019_05_29_154705) do
   end
 
   create_table "podcasts", force: :cascade do |t|
-    t.string "podcast"
-    t.string "episode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "publisher"
+    t.integer "total_episodes"
+    t.text "description"
+    t.string "listennotes_url"
   end
 
   create_table "users", force: :cascade do |t|
