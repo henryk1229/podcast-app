@@ -1,4 +1,5 @@
-<h1>Edit User<h1>
+<h1>Update Your Profile<h1>
+  <h2>
 
   <%= form_for @user do |f| %>
   <%= f.label :first_name %>:
@@ -13,8 +14,8 @@
   <%= f.label :email %>:
   <%= f.email_field :email %><br />
 
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br />
+  <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">Change</a>
 
   <% if @user.errors.any? %>
     <div>
@@ -26,5 +27,6 @@
     </div>
   <%end%>
 
-  <%= f.submit "Submit" %>
+  <p><%= f.submit "Submit" %>
 <% end %>
+</h2>
