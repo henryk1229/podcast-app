@@ -1,11 +1,13 @@
 <% provide(:title, @user.full_name) %>
-<h3>
+<h3><%="#{@user.full_name.upcase}'s Profile:"%>
   <p><%= gravatar_for @user, size: 35 %>
   <%= @user.full_name %>
   <p><%= @user.email %>
+
     <%#link to favorited podcasts %>
     <%# if @user.favorites.any? %>
-     <h3>Favorite Podcasts: (<%#= @user.favorites.count %>)</h3>
+
+     <h3>Favorite Podcasts: <%#= @user.podcasts.count %></h3>
      <ul>
        <%# @user.favorites.each do |favorite| %>
        <%#display name of favorite pods %>
@@ -14,6 +16,15 @@
      </ul>
 
    <%# end %>
+
+   <a href="<%= following_user_path(@user) %>">
+      <%= @user.following.count %>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+      <%= @user.followers.count %>
+    followers
+  </a>
 
     <%# change to current_user(user) after debug else without rescue
         current_user(user) isn't doing anything, hence else w/out rescue#%>
