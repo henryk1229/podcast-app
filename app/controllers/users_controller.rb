@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include UsersHelper
 
   def index
     @users = User.all
@@ -17,9 +16,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+      log_in @user
+      flash.now[:success] = "Welcome to the Sample App!"
       redirect_to users_path(@user)
     else
-
       flash.now[:notice] = "#{@user.errors.messages.first[0]} "+"#{@user.errors.messages.first[1][0]}"
       render :new
     end
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
   def delete
     @user = User.find(params[:id])
     @user.destroy
+    redirect_to login_path
   end
 
 
