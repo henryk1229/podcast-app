@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   #validations
-  before_save { self.email.downcase! }
+  before_save { self.email = email.downcase }
   validates :first_name,  presence: true, length: { maximum: 50 }
   validates :last_name,  presence: true, length: { maximum: 50 }
   validates :username,  presence: true, length: { maximum: 50 },
@@ -42,13 +42,17 @@ class User < ApplicationRecord
   end
 
   def authenticated?(remember_token)
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    if remember_digest.nil?
+      false
+    else
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
   end
 
   def forget
     update_attribute(:remember_digest, nil)
   end
 
-  
+
 
 end

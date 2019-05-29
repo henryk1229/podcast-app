@@ -62,7 +62,6 @@ private
     end
   end
 
-
   def correct_user
     @user = User.find(params[:id])
     redirect_to :root unless current_user?(@user)
