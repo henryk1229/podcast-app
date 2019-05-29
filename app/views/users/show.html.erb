@@ -1,5 +1,5 @@
 <% provide(:title, @user.full_name) %>
-<h3>
+<h3><%="#{@user.full_name.upcase}'s Profile:"%>
   <p><%= gravatar_for @user, size: 35 %>
   <%= @user.full_name %>
   <p><%= @user.email %>
@@ -7,7 +7,7 @@
     <%#link to favorited podcasts %>
     <%# if @user.favorites.any? %>
 
-     <h3>Favorite Podcasts: <%#= @user.favorites.count %></h3>
+     <h3>Favorite Podcasts: <%#= @user.podcasts.count %></h3>
      <ul>
        <%# @user.favorites.each do |favorite| %>
        <%#display name of favorite pods %>

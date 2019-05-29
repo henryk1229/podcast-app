@@ -7,7 +7,7 @@
       <% if @users.any? %>
         <div>
           <ul>
-          <h3><%=@users.count%> Followers:</h3>
+          <h3><%=@users.count%> <%= @title%>:</h3>
           <% @users.each do |user| %>
             <li><%= link_to gravatar_for(user, size: 20), user %>
                 <%= user.full_name %>
@@ -15,15 +15,3 @@
           <ul>
         </div>
       <% end %>
-  <div class="col-md-8">
-    <h3><%= @title %>:</h3>
-    <div>
-      <ul>
-      <h3><%=@users.count%> Followers:</h3>
-      <% @users.each do |user| %>
-        <li><%= link_to gravatar_for(user, size: 20), user %>
-            <%= user.full_name %>
-      <% end %>
-      <ul>
-    </div>
-</div>

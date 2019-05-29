@@ -9,7 +9,7 @@
       <p><%= f.label :password %>:
       <p><%= f.password_field :password%>
 
-      <p><%= f.label :remember_me, class: "checkbox inline" do %>
+      <p><%= f.label :remember_me do %>
       <p><%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
@@ -18,7 +18,7 @@
         <p><%= flash.now[:message] %>
       <%end%>
 
-      <p><div><%= f.submit "Log in", class: "btn btn-primary" %>
+      <p><div><%= f.submit "Log in"%>
     <% end %>
 
     <p>New user? <%= link_to "Sign up!", signup_path %></p>
