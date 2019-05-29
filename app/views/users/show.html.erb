@@ -3,9 +3,11 @@
   <p><%= gravatar_for @user, size: 35 %>
   <%= @user.full_name %>
   <p><%= @user.email %>
+
     <%#link to favorited podcasts %>
     <%# if @user.favorites.any? %>
-     <h3>Favorite Podcasts: (<%#= @user.favorites.count %>)</h3>
+
+     <h3>Favorite Podcasts: <%#= @user.favorites.count %></h3>
      <ul>
        <%# @user.favorites.each do |favorite| %>
        <%#display name of favorite pods %>
@@ -16,15 +18,11 @@
    <%# end %>
 
    <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
       <%= @user.following.count %>
-    </strong>
     following
   </a>
   <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
       <%= @user.followers.count %>
-    </strong>
     followers
   </a>
 
