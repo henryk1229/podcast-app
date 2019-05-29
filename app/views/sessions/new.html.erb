@@ -9,6 +9,11 @@
       <p><%= f.label :password %>:
       <p><%= f.password_field :password%>
 
+      <p><%= f.label :remember_me, class: "checkbox inline" do %>
+      <p><%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+
       <%if flash.now[:message]%>
         <p><%= flash.now[:message] %>
       <%end%>
