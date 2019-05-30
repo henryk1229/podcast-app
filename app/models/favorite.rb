@@ -1,7 +1,7 @@
 class Favorite < ApplicationRecord
 
   #validations
-  #validates :users_id, presence: true
+  validates :user_id, presence: true
 
   #display descending
   default_scope -> { order(created_at: :desc) }

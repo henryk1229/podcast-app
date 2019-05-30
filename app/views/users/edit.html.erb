@@ -14,8 +14,8 @@
   <%= f.label :email %>:
   <%= f.email_field :email %><br />
 
-  <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">Change</a>
+  <%= baccano_for @user %>
+      <a href="https://avatar.baccano.io/random" target="_blank">Change</a>
 
   <% if @user.errors.any? %>
     <div>
