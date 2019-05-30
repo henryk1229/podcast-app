@@ -19,7 +19,8 @@ class FavoritesController < ApplicationController
 
   def destroy
     byebug
-    @favorite = Favortie.find(params[:id]).destroy
+    
+    @favorite = Favorite.find(params[:id]).destroy
   end
 
 end

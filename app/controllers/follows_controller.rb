@@ -10,7 +10,6 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    byebug
     user = Follow.find(params[:id]).followed
     current_user.unfollow(user)
     redirect_to user
