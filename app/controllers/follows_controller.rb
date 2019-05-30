@@ -1,6 +1,5 @@
 class FollowsController < ApplicationController
 
-
   def create
     user = User.find(params[:id])
     current_user.follow(user)
@@ -12,7 +11,8 @@ class FollowsController < ApplicationController
   def destroy
     user = Follow.find(params[:id]).followed
     current_user.unfollow(user)
-    redirect_to user
+    flash[:message] = "#{user.username} has been unfollowed"
+    redirect_to user_path(current_user)
   end
 
 end

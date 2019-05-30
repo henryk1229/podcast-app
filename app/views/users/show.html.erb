@@ -1,6 +1,8 @@
 <% if flash[:message] %>
   <h2><p><%= flash[:message] %></h2>
 <%end%>
+
+<%# BASIC PROFILE DISPLAY %>
 <% if @user.id == current_user.id  %>
   <h3> My Profile </h3>
 <% else %>
@@ -18,12 +20,23 @@
         <%= @user.followers.count %>
       followers
     </a>
+
+
+<%# FOLLOWED PODCAST DISPLAY %>
+
     <ul>
+      Favorite Podcasts:
+    <% if @user.podcasts.length == 0%>
+      None yet! Get listening!
+    <%end%>
     <%@user.podcasts.each do |podcast|%>
-    <li><%=link_to podcast.title, podcast_path(podcast.id)%></li>
+    <p><%=link_to podcast.title, podcast_path(podcast.id)%>
     <%end%>
     </ul>
-  <%# end %>
+
+
+  <%# LINKS TO %>
+
     <p><h3><%= link_to "See all Podcasts", podcasts_path, method: :get%>
     <p><%= link_to "See all Users", users_path, method: :get%>
 
@@ -37,7 +50,7 @@
 
      <% else %>
       <%# if current_user doesn't follow @user%>
-      <% if current_user.active_follows_ids.include?("#{@user.id}")%>
+      <% if current_user.followers.include?(@user)%>
            <%#see user.rb for method %>
         <p><%= button_to "Follow", follows_path(:id => @user.id), method: :post %>
       <% else %>
@@ -45,6 +58,7 @@
         <p><%= button_to "Unfollow", follow_path(:id => @user.id), method: :delete %>
 
       <%end%>
+      <p><%= button_to "Return to My Profile", user_path(current_user), method: :get%>
     <% end %>
 
 

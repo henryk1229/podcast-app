@@ -1,12 +1,16 @@
-Podcast Show
 <br>
 <br>
-
-Title: <%=@podcast.title%><br>
+<h3><%=@podcast.title%><br></h3>
 Publisher: <%=@podcast.publisher%><br>
 Description: <%=@podcast.description%><br>
-Listen Notes: <%=link_to @podcast.listennotes_url%><br>
+Listen: <%=link_to @podcast.listennotes_url%><br>
 Total Episodes: <%=@podcast.total_episodes%>
 
-<%= button_to 'Add to Favorites', {:controller => "favorites", :action => "create", :podcast_id => @podcast.id, :user_id=> session[:user_id]} , :method=>:post  %>
+<%# If current_user doesn't follow podcast %>
+<% if !current_user.podcasts.include?(@podcast) %>
+  <%= button_to 'Add to Favorites', {:controller => "favorites", :action => "create", :podcast_id => @podcast.id, :user_id=> session[:user_id]} , method: :post  %>
+<% else %>
+  <%= button_to 'Remove from Favorites', favorite_path, method: :delete %>
+<%end%>
+
 <%= button_to 'back', podcasts_path, :method => :get%>

@@ -77,9 +77,22 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  # not working yet
   def active_follows_ids
-    self.followers.map { |a_f| a_f.followed_id }
+    self.followers.map { |a_f| a_f.user_id }
+  end
+
+  #podcast methods
+
+  def add_favorite(podcast)
+    podcasts << podcast
+  end
+
+  def remove_favorite(podcast)
+    podcasts.delete(podcast)
+  end
+
+  def podcasts?(podcast)
+    podcasts.include?(podcast)
   end
 
 

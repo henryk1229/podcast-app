@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     #@user = current_user
     @user = User.find(params[:id])
-    
+
   end
 
   def new
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  #relations methods
+  #relations show
 
   def following
     @title = "Following"
@@ -63,6 +63,7 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
+
   end
 
 
