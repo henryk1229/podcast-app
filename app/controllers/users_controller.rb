@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    #@user = current_user
     @user = User.find(params[:id])
+
   end
 
   def new
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
       @user.save
       log_in @user
       flash.now[:message] = "Welcome to the Sample App!"
-      redirect_to users_path(@user)
+      redirect_to user_path(@user)
     else
       #flash.now[:message] = "#{@user.errors.messages.first[0]} "+"#{@user.errors.messages.first[1][0]}"
       render :new
@@ -73,7 +75,7 @@ private
 
   def logged_in_user
     unless logged_in?
-      flash[:message] = "Please log in."
+      flash.now[:message] = "Please log in."
       redirect_to login_url
     end
   end

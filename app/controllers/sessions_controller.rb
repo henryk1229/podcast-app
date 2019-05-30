@@ -21,6 +21,11 @@ class SessionsController < ApplicationController
   end
 
   def home
+    if logged_in?
+      @user = current_user
+    else
+      render 'new'
+    end
   end
 
 end

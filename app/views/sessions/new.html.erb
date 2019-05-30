@@ -1,5 +1,5 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<h1>Please Log In</h1>
 
     <%= form_for(:session, url: login_path) do |f| %>
 
@@ -21,4 +21,4 @@
       <p><div><%= f.submit "Log in"%>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up!", signup_path %></p>
+    <p>New to the app? <%= link_to "Sign up!", signup_path %></p>
