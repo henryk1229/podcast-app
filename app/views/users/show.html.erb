@@ -2,35 +2,31 @@
 <% if @user.id == current_user.id  %>
   <h3> My Profile </h3>
 <% else %>
-  <h3><%="#{@user.full_name.upcase}'s Profile:"%></h3>
+  <h3><%="#{@user.username.upcase}"%></h3>
 <%end%>
     <p><%= gravatar_for @user, size: 35 %>
     <%= @user.full_name %>
-    <p><%= @user.email %>
+    <p>E-mail: <%=mail_to @user.email %>
 
-      <%#link to favorited podcasts %>
-      <%# if @user.favorites.any? %>
-      <h3><%= link_to "See all Podcasts", podcasts_path, method: :get%>
-
-       <h3>Podcasts: <%#= @user.podcasts.count %></h3>
-       <ul>
-         <%# @user.favorites.each do |favorite| %>
-         <%#display name of favorite pods %>
-         <li><%=%>
-         <%#end%>
-       </ul>
-
-     <%# end %>
-
-     <a href="<%= following_user_path(@user) %>">
+    <p> <a href="<%= following_user_path(@user) %>">
         <%= @user.following.count %>
       following
-    </a>
+    </a> |
     <a href="<%= followers_user_path(@user) %>">
         <%= @user.followers.count %>
       followers
     </a>
 
+    <h3>Podcasts: <%#= @user.podcasts.count %></h3>
+    <ul>
+      <%# @user.favorites.each do |favorite| %>
+      <%#display name of favorite pods %>
+      <li><%=%>
+      <%#end%>
+    </ul>
+
+  <%# end %>
+    <p><h3><%= link_to "See all Podcasts", podcasts_path, method: :get%>
     <p><%= link_to "See all Users", users_path, method: :get%>
 
       <%# change to current_user(user) after debug else without rescue
@@ -38,16 +34,16 @@
     <% if @user.id == current_user.id  %>
       <p><%= link_to "Log out", logout_path, method: :delete %>
       <p><%= button_to "Update profile", edit_user_path(@user), method: :get %>
-      <p><%= button_to "Delete profile", @user, method: :delete, data: { confirm: "Are you sure?"} %>
-   <% end %>
+      <p><%= button_to "Delete profile", @user, method: :delete, data: { confirm: "Are you want to delete your profile?"} %>
 
-    <%# <% else %>
-      <%# if current_user doesn't follow @user
-      <%#  <p><%= button_to "Follow #{@user.full_name}", follows_path, method: :post %>
+
+     <% else %>
+      <%# if current_user doesn't follow @user%>
+        <p><%= button_to "Follow #{@user.full_name}", follows_path, method: :post %>
       <%# else if current_user follows @user
-      <%#  button to unfollow user
-      <%#  move end down here
-
+        button to unfollow user
+        move end down here%>
+    <% end %>
 
 <
   </h3>
