@@ -8,11 +8,5 @@ class PodcastsController < ApplicationController
     @podcast = Podcast.find(params[:id])
   end
 
-  def create
-
-  end
-
-
-
 
 end

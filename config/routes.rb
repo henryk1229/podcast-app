@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :podcasts
   resources :favorites
+  post '/favorites', to: 'favorites#create', as: 'create_favorite'
+  delete '/favorties/:id', to: 'favorites#delete', as: 'delete_favorite'
   resources :users do
     member do
         get :following, :followers
