@@ -1,0 +1,22 @@
+<% provide(:title, @title) %>
+      <%= baccano_for @user, size: 30 %>
+      <h3><%= @user.full_name %>'s <%= @title%></h3>
+      <%#<p><%= link_to "view my profile", @user %>
+      <%#<p><b>Favorite Podcasts:</b> <%= @user.podcasts.count %>
+
+      <% if @users.any? %>
+        <div>
+          <ul>
+          <h3><%=@users.count%> <%= @title%>:</h3>
+          <% @users.each do |user| %>
+            <li><%= link_to baccano_for(user, size: 20), user %>
+                <%= user.full_name %>
+                <p><%= button_to "Unfollow", follow_path(followed_id: user.id), method: :delete %>
+          <% end %>
+            <ul>
+          </div>
+      <% else %>
+        Not Following Anyone Currently!
+      <% end %>
+
+    <p><%= button_to "Return to My Profile", user_path(current_user), method: :get%>
