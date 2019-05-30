@@ -1,10 +1,11 @@
 module UsersHelper
 
-  def gravatar_for(user, options = { size: 80 })
-    gravatar_id = Digest::MD5::hexdigest(user.full_name.downcase)
+  def baccano_for(user, options = { size: 50 })
+    baccano_id = Digest::MD5::hexdigest(user.full_name.downcase)
     size = options[:size]
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
-    image_tag(gravatar_url, alt: user.full_name, class: "gravatar")
+    baccano_url = "https://avatar.baccano.io"
+    image_tag(baccano_url, alt: user.full_name, class: "baccano")
+    #<img src="https://avatar.baccano.io/random" alt="Random avatar" />
   end
-  
+
 end

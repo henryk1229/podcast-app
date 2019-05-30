@@ -1,4 +1,6 @@
-
-      <h3> Welcome to the Podcast App, <%=@user.full_name%>!
-        <p><%= link_to "view profile", @user %>
-        <p><%= link_to "Visit Podcasts", podcasts_path, method: :get%>
+<h1> Welcome to the Podcast App, <%=@user.full_name%>!</h1>
+<h3>
+  <p><%= link_to "View My Profile", @user %>
+  <p><%= link_to "See All Podcasts", podcasts_path, method: :get%>
+  <p><%= link_to "Log out", logout_path, method: :delete %>
+</h3>

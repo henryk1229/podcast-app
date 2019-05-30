@@ -77,5 +77,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # not working yet
+  # def active_follows_ids
+  #   self.map { |a_f| a_f.followed_id }
+  # end
+
 
 end

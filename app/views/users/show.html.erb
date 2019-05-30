@@ -1,10 +1,13 @@
 <% provide(:title, @user.full_name) %>
+<% if flash[:message] %>
+  <h2><p><%= flash[:message] %></h2>
+<%end%>
 <% if @user.id == current_user.id  %>
   <h3> My Profile </h3>
 <% else %>
   <h3><%="#{@user.username.upcase}"%></h3>
 <%end%>
-    <p><%= gravatar_for @user, size: 35 %>
+    <p><%= baccano_for @user, size: 35 %>
     <%= @user.full_name %>
     <p>E-mail: <%=mail_to @user.email %>
 
@@ -38,12 +41,17 @@
 
 
      <% else %>
-      <%# if current_user doesn't follow @user%>
-        <p><%= button_to "Follow #{@user.full_name}", follows_path, method: :post %>
+      <%# if current_user.active_follows doesn't follow @user%>
+      <%# if !current_user.active_follows_ids.include?(@user.id)
+          see user.rb for method
+        <p><%= button_to "Follow", follows_path(:id => @user.id), method: :post %>
       <%# else if current_user follows @user
         button to unfollow user
-        move end down here%>
+        move end down here
+        if current_user.active_follows ids == followed_id %>
+        <%#<p><%= button_to "Unfollow", follow_path(:id => @user.id), method: :get %>
+      <%# <% end %>
     <% end %>
 
-<
+
   </h3>
