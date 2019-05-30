@@ -11,16 +11,18 @@
           <% @users.each do |user| %>
             <li><%= link_to baccano_for(user, size: 20), user %>
                 <%= user.full_name %>
-                <% if @title == "Following" %>
-                <%# unfollow button or follow back button depending on followers/following%>
-                  <p><%= button_to "Unfollow", follow_path(:id => @user.id), method: :delete %>
+
+                <% if !current_user.followers.include?(user) %>
+                  <p><%= button_to "Follow Back!", follows_path(:id => user.id), method: :post %>
+                <%else%>
+                  <p><%= button_to "Follow", follows_path(:id => user.id), method: :post %>
                 <% end %>
-                <% if @title == "Followers" %>
-                  <p><%= button_to "Follow Back!", follows_path(:id => @user.id), method: :post %>
-                <% end %>
+
           <% end %>
             <ul>
           </div>
+      <% else %>
+        No Followers Yet!
+      <% end %>
 
     <p><%= button_to "Return to My Profile", user_path(current_user), method: :get%>
-      <% end %>

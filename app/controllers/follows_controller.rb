@@ -13,6 +13,7 @@ class FollowsController < ApplicationController
     current_user.unfollow(user)
     flash[:message] = "#{user.username} has been unfollowed"
     redirect_to user_path(current_user)
+    
   end
 
 end
