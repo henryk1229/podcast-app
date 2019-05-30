@@ -9,15 +9,15 @@
           <ul>
           <h3><%=@users.count%> <%= @title%>:</h3>
           <% @users.each do |user| %>
+
             <li><%= link_to baccano_for(user, size: 20), user %>
                 <%= user.full_name %>
 
                 <% if !current_user.followers.include?(user) %>
                   <p><%= button_to "Follow Back!", follows_path(:id => user.id), method: :post %>
-                <%else%>
-                  <p><%= button_to "Follow", follows_path(:id => user.id), method: :post %>
-                <% end %>
 
+                <% end %>
+              
           <% end %>
             <ul>
           </div>
