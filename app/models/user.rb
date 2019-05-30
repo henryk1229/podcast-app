@@ -78,9 +78,9 @@ class User < ApplicationRecord
   end
 
   # not working yet
-  # def active_follows_ids
-  #   self.map { |a_f| a_f.followed_id }
-  # end
+  def active_follows_ids
+    self.followers.map { |a_f| a_f.followed_id }
+  end
 
 
 end

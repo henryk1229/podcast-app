@@ -73,16 +73,15 @@
 
 
      <% else %>
-      <%# if current_user.active_follows doesn't follow @user%>
-      <%# if !current_user.active_follows_ids.include?(@user.id)
-          see user.rb for method
+      <%# if current_user doesn't follow @user%>
+      <% if current_user.active_follows_ids.include?("#{@user.id}")%>
+           <%#see user.rb for method %>
         <p><%= button_to "Follow", follows_path(:id => @user.id), method: :post %>
-      <%# else if current_user follows @user
-        button to unfollow user
-        move end down here
-        if current_user.active_follows ids == followed_id %>
-        <%#<p><%= button_to "Unfollow", follow_path(:id => @user.id), method: :get %>
-      <%# <% end %>
+      <% else %>
+      <%# if current_user follows @user%>
+        <p><%= button_to "Unfollow", follow_path(:id => @user.id), method: :delete %>
+
+      <%end%>
     <% end %>
 
 
