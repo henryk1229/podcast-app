@@ -13,11 +13,6 @@ seed_podcasts = response_data["podcasts"]
     Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
   end
 
-
-User.create(username: "user1", first_name: "first name1", last_name: "last name1", email: "email1@example.com", password: "password")
-User.create(username: "user2", first_name: "first name2", last_name: "last name2", email: "email2@example.com", password: "password")
-Podcast.create(podcast: "the Pod Cast", episode: "episode 1")
-Podcast.create(podcast: "Casting Pods", episode: "episode 1")
-Favorite.create(users_id: 1, podcasts_id: 1)
-Favorite.create(users_id: 1, podcasts_id: 2)
-Favorite.create(users_id: 2, podcasts_id: 2)
+#
+# User.create(username: "user1", first_name: "first name1", last_name: "last name1", email: "email1@example.com", password: "password")
+# User.create(username: "user2", first_name: "first name2", last_name: "last name2", email: "email2@example.com", password: "password")

@@ -1,9 +1,11 @@
 <h1>All podcasts<h1>
-
+  <%= form_tag(podcasts_path method: :get) do %>
+    Podcasts <%= text_field_tag :podcast, params[:podcast] %>
+    <%= submit_tag 'Search', title: nil %>
+  <% end %>
+<ul>
 <% @podcasts.each do |podcast| %>
-<%= podcast.title %><br>
-<%= podcast.publisher %><br>
-<%= podcast.total_episodes %><br>
-<%= podcast.description %> <br>
-<%= podcast.listennotes_url %><br>
+<%=link_to podcast.title, podcast %><br>
 <%end%>
+<ul>
+<%= button_to "home", root_path, :method => :get %>

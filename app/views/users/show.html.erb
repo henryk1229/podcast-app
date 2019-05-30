@@ -1,4 +1,44 @@
 <% provide(:title, @user.full_name) %>
+
+<h3><%="#{@user.full_name.upcase}'s Profile:"%>
+  <p><%= gravatar_for @user, size: 35 %>
+  <%= @user.full_name %>
+  <p><%= @user.email %>
+
+    <%#link to favorited podcasts %>
+    <%# if @user.favorites.any? %>
+
+     <h3>Favorite Podcasts: <%= @user.podcasts.count %></h3>
+     <ul>
+       <% @user.podcasts.each do |podcast| %>
+       <%
+       <li><%=link_to podcast.title, podcast%><%= button_to "delete", delete_favorite_path(@user.favorites.ids), :method => :delete %>
+       <%end%>
+     </ul>
+
+   <%# end %>
+
+   <a href="<%= following_user_path(@user) %>">
+      <%= @user.following.count %>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+      <%= @user.followers.count %>
+    followers
+  </a>
+
+    <%# change to current_user(user) after debug else without rescue
+        current_user(user) isn't doing anything, hence else w/out rescue#%>
+  <% if logged_in? %>
+    <p><%= link_to "Log out", logout_path, method: :delete %>
+    <p><%= button_to "Update profile", edit_user_path(@user), method: :get %>
+    <p><%= button_to "Delete profile", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+  <% else %>
+    <p><%= link_to "Log in", login_path, method: :get %>
+  <% end %>
+
+</h3>
+
 <% if flash[:message] %>
   <h2><p><%= flash[:message] %></h2>
 <%end%>
@@ -19,14 +59,6 @@
         <%= @user.followers.count %>
       followers
     </a>
-
-    <h3>Podcasts: <%#= @user.podcasts.count %></h3>
-    <ul>
-      <%# @user.favorites.each do |favorite| %>
-      <%#display name of favorite pods %>
-      <li><%=%>
-      <%#end%>
-    </ul>
 
   <%# end %>
     <p><h3><%= link_to "See all Podcasts", podcasts_path, method: :get%>
