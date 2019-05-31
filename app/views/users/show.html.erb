@@ -13,7 +13,9 @@
     <%= @user.full_name %>
     <p> Bio: <%= @user.bio %>
     <p>E-mail: <%=mail_to @user.email %>
-    <p><%= button_to "Change Avatar", change_avatar_path(@user), method: :post%>
+      <% if current_user.id == @user.id %>
+        <p><%= button_to "Change Avatar", change_avatar_path(@user), method: :post%>
+      <%end%>
 
     <p> <a href="<%= following_user_path(@user) %>">
         <%= @user.following.count %>
