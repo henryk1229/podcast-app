@@ -1,5 +1,5 @@
 <% provide(:title, @title) %>
-      <%= baccano_for @user, size: 30 %>
+      <%=image_tag "#{@user.avatar}"%>
       <h3><%= @user.full_name %>'s <%= @title%></h3>
       <%#<p><%= link_to "view my profile", @user %>
       <%#<p><b>Favorite Podcasts:</b> <%= @user.podcasts.count %>
@@ -10,7 +10,7 @@
           <h3><%=@users.count%> <%= @title%>:</h3>
           <% @users.each do |user| %>
 
-            <li><%= link_to baccano_for(user, size: 20), user %>
+            <li><%=image_tag "#{user.avatar}"%>
                 <%= user.full_name %>
 
                 <% if !current_user.active_follows_ids.include?(user.id) %>

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :set_default_avatar
 
   #validations
   before_save { self.email = email.downcase }
@@ -33,6 +34,16 @@ class User < ApplicationRecord
   def full_name
     "#{self.first_name} "+"#{self.last_name}"
   end
+
+  def set_default_avatar
+    baccano_id = Digest::MD5::hexdigest(rand(1..100).to_s)
+    self.img_url = "https://avatar.baccano.io/#{baccano_id}"
+  end
+
+  def avatar
+    self.img_url
+  end
+
 
   #login/auth
 

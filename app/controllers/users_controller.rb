@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    
+
   end
 
   def show
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
   end
 
   def create
@@ -67,26 +68,6 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_followers'
 
-  end
-
-
-private
-
-
-  def user_params(*args)
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
-  end
-
-  def logged_in_user
-    unless logged_in?
-      flash.now[:message] = "Please log in."
-      redirect_to login_url
-    end
-  end
-
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to :root unless current_user?(@user)
   end
 
 end
