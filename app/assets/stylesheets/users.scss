@@ -1,3 +1,38 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2.users {
+    border-bottom: 10px solid yellow;
+    background-color: #21c490;
+    font: 30px arial;
+    color: white;
+  }
+
+h3.users {
+  font: 18px arial;
+  color: white;
+}
+
+h4.users {
+  font: 18px arial;
+  color: #21c490;
+}
+
+span.users {
+  font: 12px arial;
+  color: white;
+
+}
+
+
+p.flash {
+  font: 16px arial;
+  color: red;
+
+}
+
+body.users {
+  text-align: center;
+
+}
