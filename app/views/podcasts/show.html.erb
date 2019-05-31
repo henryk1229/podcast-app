@@ -1,8 +1,10 @@
 <h1 class="podcasts"><%=@podcast.title%></h1><br>
-<li class="podcasts">Publisher: <%=@podcast.publisher%></li><br>
-<li class="podcasts">Description: <%=@podcast.description%></li><br>
-<li class="podcasts">Total Episodes: <%=@podcast.total_episodes%></li>
+<h4 class="podcasts">Publisher:</h4><p class="podcasts"><%=@podcast.publisher%></p><br>
+<h4 class="podcasts">Description:</h4><p class="podcasts"> <%=@podcast.description%></p><br>
+<h4 class="podcasts">Total Episodes:</h4><p class="podcasts"> <%=@podcast.total_episodes%></li>
+<h4 class="podcasts">rss:<%=@podcast.rss%></li><br>
 <li class="podcasts"><%=link_to "ListenNotes ", "#{@podcast.listennotes_url}", target: :_blank%></li><br>
+
 <li class="podcasts">rss:<%=@podcast.rss%></li><br>
 
 <audio controls>
@@ -18,5 +20,3 @@ Your browser does not support the audio element.
 <% else %>
   <%= button_to 'Remove from Favorites', {:controller => "favorites", :action => "destroy", :podcast_id => @podcast.id }, method: :delete %>
 <%end%>
-
-<%= button_to 'All Podcasts', podcasts_path, :method => :get%>

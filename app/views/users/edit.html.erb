@@ -1,25 +1,26 @@
-<h1>Update Your Profile<h1>
-  <h3>
+<h2 class="users">Update Your Profile</h2>
+
 
   <%= form_for @user do |f| %>
-  <p><%= f.label :first_name %>:
-  <p><%= f.text_field :first_name %><br />
+  <h3 class="users"><%= f.label :first_name %>:</h3>
+  <p class="users"><%= f.text_field :first_name %></p>
 
-  <p><%= f.label :last_name %>:
+  <h3 class="users"<%= f.label :last_name %>:</h3>
   <p><%= f.text_field :last_name %><br />
 
-  <p><%= f.label :username %>:
+  <h3 class="users"<%= f.label :username %>:</h3>
   <p><%= f.text_field :username %><br />
 
-  <p><%= f.label :email %>:
-  <p><%= f.email_field :email %><br />
+  <h3 class="users"<%= f.label :email %>:</h3>
+  <p><%= f.email_field :email %><br>
 
-  <p><%= f.label :bio %>:
-  <p><%= f.text_area :bio %><br />
+  <h3 class="users"<%= f.label :bio %>:</h3>
+  <p><%= f.text_area :bio %><br>
 
-  <%#<p><%= fields_for :avatar do |user_avatar| %><br />
-  <%# <p><%= f.label :avatar %>:
-  <%# <p><%= button_to "Change Avatar", edit_user_path(@user), method: :post%>
+  <%#<p><%= fields_for :avatar do |user_avatar| %>
+  <h3 class="users"><%= f.label :avatar %>:</h3>
+  <p><%= button_to "Change Avatar", edit_user_path(@user), method: :post%>
+
   <%#<%end%>
 
   <% if @user.errors.any? %>
@@ -34,4 +35,3 @@
 
   <p><%= f.submit "Update Profile" %>
 <% end %>
-</h3>
