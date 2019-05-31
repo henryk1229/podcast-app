@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
       <%=image_tag "#{@user.avatar}"%>
-      <h3><%= @user.full_name %>'s <%= @title%></h3>
+      <h3>My <%= @title%></h3>
       <%#<p><%= link_to "view my profile", @user %>
       <%#<p><b>Favorite Podcasts:</b> <%= @user.podcasts.count %>
 
@@ -10,8 +10,11 @@
           <h3><%=@users.count%> <%= @title%>:</h3>
           <% @users.each do |user| %>
 
-            <li><%=image_tag "#{user.avatar}"%>
-                <%= user.full_name %>
+            <%=image_tag "#{user.avatar}"%>
+                <h2><%= user.username %></h2>
+                  <% user.podcasts.each do |user_podcast|%>
+                  <p> <%= link_to user_podcast.title, podcast_path(user_podcast.id)%>
+                  <%end%>
 
                 <% if !current_user.active_follows_ids.include?(user.id) %>
                   <p><%= button_to "Follow Back!", follows_path(:id => user.id), method: :post %>
