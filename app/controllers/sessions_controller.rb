@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
   def home
     if logged_in?
       @user = current_user
+      #redirect_to user_path(current_user)
     else
       render 'new'
     end
