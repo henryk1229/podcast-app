@@ -17,14 +17,12 @@ class FavoritesController < ApplicationController
   #
   # end
 
-    def destroy
-      favorite = Favorite.find(params[:id])
-      current_user.remove_favorite(favorite)
-      flash[:message] = "#{@podcast.title} has been removed from your favorites"
-      redirect_to user_path(current_user)
-    
-
-    end
+  def destroy
+    favorite = Favorite.find_by(params[:id])
+    flash[:message] = "#{favorite.podcast.title} has been removed from your favorites"
+    favorite.delete
+    redirect_to user_path(current_user)
+  end
 
   # def destroy
   #   user = Follow.find(params[:id]).followed

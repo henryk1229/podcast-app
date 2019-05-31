@@ -17,3 +17,28 @@
 body {
   background-color:rgba(255,0,0,0.3);
 }
+
+ul.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: solid purple;
+}
+
+li.nav {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-family: "Arial";
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #21c490;
+}

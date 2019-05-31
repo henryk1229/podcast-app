@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_031126) do
     t.string "email"
     t.string "password_digest"
     t.string "remember_digest"
+    t.string "avatar", default: "https://tinyurl.com/boiiiiiiiiiiiiiii"
     t.text "bio"
     t.string "img_url"
   end
