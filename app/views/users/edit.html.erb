@@ -18,10 +18,9 @@
   <p><%= f.text_area :bio %><br />
 
   <%#<p><%= fields_for :avatar do |user_avatar| %><br />
-  <p><%= f.label :avatar %>:
-  <p><%= button_to "Change Avatar", edit_user_path(@user), method: :post%>
+  <%# <p><%= f.label :avatar %>:
+  <%# <p><%= button_to "Change Avatar", edit_user_path(@user), method: :post%>
   <%#<%end%>
-
 
   <% if @user.errors.any? %>
     <div>

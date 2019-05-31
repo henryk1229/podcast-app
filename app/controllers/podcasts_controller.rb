@@ -3,6 +3,7 @@ class PodcastsController < ApplicationController
   def index
     if logged_in?
       @podcasts = Podcast.all
+
     else
       render 'sessions/new'
     end
@@ -10,6 +11,7 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.find(params[:id])
+
   end
 
 
