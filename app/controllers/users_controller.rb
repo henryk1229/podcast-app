@@ -72,6 +72,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     new_avatar = @user.set_default_avatar
     @user.avatar = new_avatar
+    user_avatar = @user.avatar
+    @user.update(avatar: user_avatar)
     render 'show'
   end
 
