@@ -28,4 +28,8 @@ class SessionsController < ApplicationController
     end
   end
 
+  def about
+    render :about
+  end
+
 end

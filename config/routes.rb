@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'sessions#home'
   get 'sessions/new'
+
+  get "/about", to: "sessions#about"
   #post '/signup',  to: 'users#create'
   get    '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'

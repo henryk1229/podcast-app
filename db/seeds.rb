@@ -1,18 +1,103 @@
-
-
-response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts",
-  {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
-    accept: :json
-  })
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=90",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
 response_data = JSON.parse(response)
 
 seed_podcasts = response_data["podcasts"]
 
-  seed_podcasts.each do |podcast|
+seed_podcasts.each do |podcast|
 
-    Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
-  end
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
 
-#
-# User.create(username: "user1", first_name: "first name1", last_name: "last name1", email: "email1@example.com", password: "password")
-# User.create(username: "user2", first_name: "first name2", last_name: "last name2", email: "email2@example.com", password: "password")
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=91",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=94",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=95",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=95",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=96",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=98",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end
+
+response = RestClient.get("https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=99",
+      {"X-ListenAPI-Key": "96b204f3687d4e9998e5d2206af928ae",
+        accept: :json
+      })
+response_data = JSON.parse(response)
+
+seed_podcasts = response_data["podcasts"]
+
+seed_podcasts.each do |podcast|
+
+Podcast.create!(title: podcast["title"], publisher: podcast["publisher"], total_episodes: podcast["total_episodes"], description: podcast["description"], listennotes_url: podcast["listennotes_url"])
+end

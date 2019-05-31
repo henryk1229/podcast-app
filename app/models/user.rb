@@ -87,9 +87,7 @@ class User < ApplicationRecord
     podcasts << podcast
   end
 
-  def remove_favorite(podcast)
-    podcasts.delete(podcast)
-  end
+
 
   def podcasts?(podcast)
     podcasts.include?(podcast)

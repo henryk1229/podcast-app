@@ -1,12 +1,36 @@
+<html>
+<head>
+<style>
+  h1 {
+    border-bottom: 20px solid purple;
+    background-color: #21c490;
+    font: 60px arial;
+    color: white;
+  }
+  table {
+
+  }
+  </style>
+  </head>
+  <body>
+
 <%= button_to "Return to My Profile", user_path(current_user), method: :get%>
-<h1>Top Podcasts<h1>
-  <%= form_tag(podcasts_path method: :get) do %>
-    Podcasts <%= text_field_tag :podcast, params[:podcast] %>
+<h1>Podcasts</h1>
+<h2>  <%= form_tag(podcasts_path method: :get) do %>
+    <%= text_field_tag :podcast, params[:podcast] %>
     <%= submit_tag 'Search', title: nil %>
   <% end %>
-<ul>
+</h2>
+  <tr><th>
+<ol>
+<br>
 <% @podcasts.each do |podcast| %>
-<%=link_to podcast.title, podcast %><br>
+<li><%=link_to podcast.title, podcast %></li><br>
 <%end%>
-<ul>
+<ol>
+  </th>
+  </tr>
+</body>
+</html>
+
 <%= button_to "home", root_path, :method => :get %>
