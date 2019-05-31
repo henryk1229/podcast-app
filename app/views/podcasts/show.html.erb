@@ -11,3 +11,6 @@
 <% else %>
   <%= button_to 'Remove from Favorites', {:controller => "favorites", :action => "destroy", :podcast_id => @podcast.id }, method: :delete %>
 <%end%>
+
+<%= button_to 'All Podcasts', podcasts_path, :method => :get%>
+
