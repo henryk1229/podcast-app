@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:message] = "Your Profile has been updated"
       redirect_to user_path(current_user)
+
     else
       #flash.now[:message] = "invalid update"
       render :edit
@@ -67,7 +68,13 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_followers'
-
   end
+
+  # def change_avatar
+  #   @user = User.find(params[:id])
+  #   new_avatar = @user.set_default_avatar
+  #   @user.avatar = new_avatar
+  #   render 'update'
+  # end
 
 end
