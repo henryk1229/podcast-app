@@ -7,12 +7,14 @@
       <% if @users.any? %>
         <div>
           <ul>
-          <h3><%=@users.count%> <%= @title%>:</h3>
+
           <% @users.each do |user| %>
 
             <%=image_tag "#{user.avatar}"%>
                 <h2><%= user.username %></h2>
+                <p> <%= user.username%>'s Podcasts:
                   <% user.podcasts.each do |user_podcast|%>
+
                   <p> <%= link_to user_podcast.title, podcast_path(user_podcast.id)%>
                   <%end%>
 

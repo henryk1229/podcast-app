@@ -10,8 +10,8 @@
           <h3><%=@users.count%> <%= @title%>:</h3>
           <% @users.each do |user| %>
             <%=image_tag "#{user.avatar}"%>
-      
-                <h2><ul><%= user.username%>'s Favorite Pods:</h2>
+
+                <h2><ul><%= user.username%>'s Podcasts:</h2>
                   <% user.podcasts.each do |user_podcast|%>
                   <p> <%= link_to user_podcast.title, podcast_path(user_podcast.id)%>
                   <%end%>
