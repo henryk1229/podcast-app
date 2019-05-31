@@ -4,6 +4,13 @@
 <li class="podcasts">Total Episodes: <%=@podcast.total_episodes%></li>
 <li class="podcasts"><%=link_to "ListenNotes ", "#{@podcast.listennotes_url}", target: :_blank%></li><br>
 <li class="podcasts">rss:<%=@podcast.rss%></li><br>
+
+<audio controls>
+  <source src="https://instaud.io/3KA0"  type="audio/ogg">
+  <source src="https://instaud.io/3KA0" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
 <br>
 <br>
 <% if !current_user.podcasts.include?(@podcast) %>
