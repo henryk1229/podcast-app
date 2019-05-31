@@ -4,6 +4,7 @@
 
 <%# BASIC PROFILE DISPLAY %>
 <% if @user.id == current_user.id  %>
+
   <h2 class="users"> My Profile </h2>
 <% else %>
   <h2 class="users"><%="#{@user.username.upcase}"%></h2>
@@ -12,11 +13,9 @@
 <body class="users">
     <p><%=image_tag "#{@user.avatar}"%><br>
     <%= @user.full_name %>
-    <p> Bio: <%= @user.bio %>
-    <p>E-mail: <%=mail_to @user.email %>
-      <% if current_user.id == @user.id %>
-        <p><%= button_to "Change Avatar", change_avatar_path(@user), method: :post%>
-      <%end%>
+
+    <h3 class="users"> Bio:</h3> <%= @user.bio %>
+    <h3 class="users">E-mail:</h3> <%=mail_to @user.email %>
 
 
     <p><a href="<%= following_user_path(@user) %>">
@@ -65,5 +64,5 @@
     <% end %>
 
 
-  <>
+
 </body>
