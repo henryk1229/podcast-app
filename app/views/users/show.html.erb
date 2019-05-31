@@ -4,9 +4,9 @@
 
 <%# BASIC PROFILE DISPLAY %>
 <% if @user.id == current_user.id  %>
-  <h3> My Profile </h3>
+  <h3 class="users"> My Profile </h3>
 <% else %>
-  <h3><%="#{@user.username.upcase}"%></h3>
+  <h3 class="users"><%="#{@user.username.upcase}"%></h3>
 <%end%>
     <p><%=image_tag "#{@user.avatar}"%>
     <%= @user.full_name %>

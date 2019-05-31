@@ -1,3 +1,20 @@
 // Place all the styles related to the Podcasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1.podcasts {
+    border-bottom: 20px solid purple;
+    background-color: #21c490;
+    font: 60px arial;
+    color: white;
+  }
+
+li.podcasts {
+  display: block;
+  color: red;
+  size: 30px;
+  font-family: "Arial";
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}

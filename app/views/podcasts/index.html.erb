@@ -1,12 +1,8 @@
-<%= button_to "Return to My Profile", user_path(current_user), method: :get%>
-<h1>Top Podcasts<h1>
-  <%= form_tag(podcasts_path method: :get) do %>
-    Podcasts <%= text_field_tag :podcast, params[:podcast] %>
-    <%= submit_tag 'Search', title: nil %>
-  <% end %>
-<ul>
+<h1 class="podcasts" > Podcasts</h1> 
+<br>
+<!-- <ol class="podcasts"> -->
 <% @podcasts.each do |podcast| %>
-<%=link_to podcast.title, podcast %><br>
+<li class="podcasts"><%=link_to podcast.title, podcast %></li><br>
 <%end%>
-<ul>
-<%= button_to "home", root_path, :method => :get %>
+<!-- </ol> -->
+<%= button_to "Return to My Profile", user_path(current_user), method: :get%>

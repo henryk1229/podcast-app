@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     redirect_to user_path(current_user)
 
   end
-
+  
     def destroy
 
       podcast = Podcast.find(params[:podcast_id])

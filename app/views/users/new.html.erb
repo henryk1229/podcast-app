@@ -1,4 +1,4 @@
-<h1>New User<h1>
+<h1 class="users">New User<h1>
   <h3>
 
   <%= form_for @user do |f| %>
@@ -17,15 +17,15 @@
   <p><%= f.label :password %>:
   <p><%= f.password_field :password %><br />
 
-  <p>Tell us about yourself!
+  <h3 class="users"> Tell us about yourself! </h3>
   <p><%= f.label :bio %>:
   <p><%= f.text_area :bio %> <br />
 
   <% if @user.errors.any? %>
     <div>
-      <ul>
+      <ul class="users">
       <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="users"  ><%= message %></li>
       <% end %>
       </ul>
     </div>
@@ -33,4 +33,3 @@
 
   <p><%= f.submit "Create Profile" %>
 <% end %>
-</h3>
