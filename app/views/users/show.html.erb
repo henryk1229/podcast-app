@@ -4,9 +4,11 @@
 
 <%# BASIC PROFILE DISPLAY %>
 <% if @user.id == current_user.id  %>
-  <h2 class="users"> My Profile </h2>
+
+  <h2 class="users"> My Profile </h3>
 <% else %>
-  <h2 class="users"><%="#{@user.username.upcase}"%></h2>
+  <h2 class="users"><%="#{@user.username.upcase}"%></h3>
+
 <%end%>
 
 <body class="users">
@@ -14,6 +16,7 @@
     <%= @user.full_name %>
     <h3 class="users"> Bio:</h3> <%= @user.bio %>
     <h3 class="users">E-mail:</h3> <%=mail_to @user.email %>
+
 
 
 
