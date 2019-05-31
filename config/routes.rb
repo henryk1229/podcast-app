@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :favorites
   post '/favorites', to: 'favorites#create', as: 'create_favorite'
   delete '/favorites/:id', to: 'favorites#delete', as: 'delete_favorite'
+  post '/change_avatar/:id', to: 'users#change_avatar', as: 'change_avatar'
   resources :users do
     member do
         get :following, :followers

@@ -2,7 +2,9 @@
 <%if flash.now[:message]%>
   <p class="flash"><%= flash.now[:message] %>
 <%end%>
+
 <h2 class="users">Please Log In</h2>
+
 
     <%= form_for(:session, url: login_path) do |f| %>
 

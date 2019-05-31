@@ -8,11 +8,13 @@
 <% else %>
   <h2 class="users"><%="#{@user.username.upcase}"%></h3>
 <%end%>
+
 <body class="users">
     <p><%=image_tag "#{@user.avatar}"%><br>
     <%= @user.full_name %>
     <h3 class="users"> Bio:</h3> <%= @user.bio %>
     <h3 class="users">E-mail:</h3> <%=mail_to @user.email %>
+
 
     <p><a href="<%= following_user_path(@user) %>">
         <%= @user.following.count %>

@@ -26,7 +26,6 @@ class UsersController < ApplicationController
       flash.now[:message] = "Welcome to the Sample App!"
       redirect_to user_path(@user)
     else
-      #flash.now[:message] = "#{@user.errors.messages.first[0]} "+"#{@user.errors.messages.first[1][0]}"
       render :new
     end
   end
@@ -42,7 +41,6 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
 
     else
-      #flash.now[:message] = "invalid update"
       render :edit
     end
   end
@@ -70,11 +68,13 @@ class UsersController < ApplicationController
     render 'show_followers'
   end
 
-  # def change_avatar
-  #   @user = User.find(params[:id])
-  #   new_avatar = @user.set_default_avatar
-  #   @user.avatar = new_avatar
-  #   render 'update'
-  # end
+  def change_avatar
+    @user = User.find(params[:id])
+    new_avatar = @user.set_default_avatar
+    @user.avatar = new_avatar
+    user_avatar = @user.avatar
+    @user.update(avatar: user_avatar)
+    render 'show'
+  end
 
 end
