@@ -2,8 +2,8 @@
 <li class="podcasts">Publisher: <%=@podcast.publisher%></li><br>
 <li class="podcasts">Description: <%=@podcast.description%></li><br>
 <li class="podcasts">Total Episodes: <%=@podcast.total_episodes%></li>
-<li class="podcasts"><%=link_to "listen now", "#{@podcast.listennotes_url}", target: :_blank%></li><br>
-
+<li class="podcasts"><%=link_to "ListenNotes ", "#{@podcast.listennotes_url}", target: :_blank%></li><br>
+<li class="podcasts">rss:<%=@podcast.rss%></li><br>
 <br>
 <br>
 <% if !current_user.podcasts.include?(@podcast) %>
@@ -13,4 +13,3 @@
 <%end%>
 
 <%= button_to 'All Podcasts', podcasts_path, :method => :get%>
-
