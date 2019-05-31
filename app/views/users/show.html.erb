@@ -1,19 +1,20 @@
 <% if flash[:message] %>
-  <h2><p><%= flash[:message] %></h2>
+  <p class="flash"><%= flash[:message] %></p>
 <%end%>
 
 <%# BASIC PROFILE DISPLAY %>
 <% if @user.id == current_user.id  %>
-  <h3 class="users"> My Profile </h3>
+  <h2 class="users"> My Profile </h3>
 <% else %>
-  <h3 class="users"><%="#{@user.username.upcase}"%></h3>
+  <h2 class="users"><%="#{@user.username.upcase}"%></h3>
 <%end%>
-    <p><%=image_tag "#{@user.avatar}"%>
+<body class="users">
+    <p><%=image_tag "#{@user.avatar}"%><br>
     <%= @user.full_name %>
-    <p> Bio: <%= @user.bio %>
-    <p>E-mail: <%=mail_to @user.email %>
+    <h3 class="users"> Bio:</h3> <%= @user.bio %>
+    <h3 class="users">E-mail:</h3> <%=mail_to @user.email %>
 
-    <p> <a href="<%= following_user_path(@user) %>">
+    <p><a href="<%= following_user_path(@user) %>">
         <%= @user.following.count %>
       following
     </a> |
@@ -25,13 +26,11 @@
 
 <%# FOLLOWED PODCAST DISPLAY %>
 
-    <ul>
-      <h3>Favorite Podcasts:</h3>
+    <ul class="users" >
+      <h3 class="users" >Favorite Podcasts:</h3>
     <% if @user.podcasts.length == 0 %>
         <% if current_user.id == @user.id %>
           None yet! Get listening!
-        <%else%>
-          None yet!
         <%end%>
     <%end%>
     <%@user.podcasts.each do |podcast|%>
@@ -41,9 +40,6 @@
 
 
   <%# LINKS TO %>
-
-    <p><h3><%= link_to "See all Podcasts", podcasts_path, method: :get%>
-    <p><%= link_to "See all Users", users_path, method: :get%>
 
     <% if @user.id == current_user.id  %>
       <p><%= link_to "Log out", logout_path, method: :delete %>
@@ -65,3 +61,4 @@
 
 
   </h3>
+</body>

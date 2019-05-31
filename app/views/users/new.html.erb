@@ -1,24 +1,24 @@
-<h1 class="users">New User<h1>
+<h2 class="users">New User<h1>
   <h3>
 
   <%= form_for @user do |f| %>
-  <p><%= f.label :first_name %>:
+  <h3 class="users" ><%= f.label :first_name %>:</h3>
   <p><%= f.text_field :first_name %><br />
 
-  <p><%= f.label :last_name %>:
+  <h3 class="users"><%= f.label :last_name %>:</h3>
   <p><%= f.text_field :last_name %><br />
 
-  <p><%= f.label :username %>:
+  <h3 class="users"<%= f.label :username %>:</h3>
   <p><%= f.text_field :username %><br />
 
-  <p><%= f.label :email %>:
+  <h3 class="users"<%= f.label :email %>:</h3>
   <p><%= f.email_field :email %><br />
 
-  <p><%= f.label :password %>:
+  <h3 class="users"<%= f.label :password %>:</h3>
   <p><%= f.password_field :password %><br />
 
-  <h3 class="users"> Tell us about yourself! </h3>
-  <p><%= f.label :bio %>:
+  <h4 class="users"> Tell us about yourself! </h3>
+  <h3 class="users"<%= f.label :bio %>:</h3>
   <p><%= f.text_area :bio %> <br />
 
   <% if @user.errors.any? %>

@@ -3,18 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1.podcasts {
-    border-bottom: 20px solid purple;
+    border-bottom: 15px solid purple;
     background-color: #21c490;
-    font: 60px arial;
+    font: 40px arial;
     color: white;
   }
 
 li.podcasts {
   display: block;
-  color: red;
+  color: white;
   size: 30px;
   font-family: "Arial";
   text-align: left;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+h1.home {
+  border-bottom: 20px solid white;
+  background-color: #21c490;
+  font: 60px arial;
+  color:  white;
+
+}
+
+h4.podcasts {
+  font: 22px arial;
+  color: white;
+  font-style:oblique;
+}
+
+p.podcasts {
+  font: 16px arial;
+  color: purple;
 }

@@ -1,6 +1,8 @@
 <h1 class="home"> Welcome to the Podcast App, <%=@user.full_name%>!</h1>
-<h3>
-  <p><%= link_to "View My Profile", @user %>
-  <p><%= link_to "See All Podcasts", podcasts_path, method: :get%>
-  <p><%= link_to "Log out", logout_path, method: :delete %>
-</h3>
+<body class="home">
+  <img src="https://img.wavescdn.com/1lib/images/blog/banners/top-tips-for-recording-mixing-better-sounding-podcasts/1.jpg">
+</body>
+<br>
+<br>
+  <p class="home"><%= link_to "View My Profile", @user %>
+  <p class="home"><%= link_to "Log out", logout_path, method: :delete %>
