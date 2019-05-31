@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
       current_user.remove_favorite(favorite)
       flash[:message] = "#{@podcast.title} has been removed from your favorites"
       redirect_to user_path(current_user)
-      byebug
+    
 
     end
 

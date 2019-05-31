@@ -78,7 +78,7 @@ class User < ApplicationRecord
   end
 
   def active_follows_ids
-    self.followers.map { |a_f| a_f.user_id }
+    self.active_follows.map { |a_f| a_f.followed_id }
   end
 
   #podcast methods

@@ -13,11 +13,15 @@
             <li><%= link_to baccano_for(user, size: 20), user %>
                 <%= user.full_name %>
 
-                <% if !current_user.followers.include?(user) %>
+                <% if !current_user.active_follows_ids.include?(user.id) %>
                   <p><%= button_to "Follow Back!", follows_path(:id => user.id), method: :post %>
-
+                <%else%>
+                  <%= form_for current_user.active_follows.find_by(followed_id: user.id),
+                               html: { method: :delete } do |f| %>
+                    <%= f.submit "Unfollow" %>
+                  <% end %>
                 <% end %>
-              
+
           <% end %>
             <ul>
           </div>
