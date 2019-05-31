@@ -1,5 +1,5 @@
-<h1> Welcome to the Podcast App, <%=@user.full_name%>!</h1>
-<h3>
+<h1 class="home"> Welcome to the Podcast App, <%=@user.full_name%>!</h1>
+<h3 class="home">
   <p><%= link_to "View My Profile", @user %>
   <p><%= link_to "See All Podcasts", podcasts_path, method: :get%>
   <p><%= link_to "Log out", logout_path, method: :delete %>

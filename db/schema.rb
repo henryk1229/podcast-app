@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_031126) do
+ActiveRecord::Schema.define(version: 2019_05_31_133719) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_031126) do
     t.integer "total_episodes"
     t.text "description"
     t.string "listennotes_url"
+    t.string "rss"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_031126) do
     t.string "email"
     t.string "password_digest"
     t.string "remember_digest"
+    t.string "avatar", default: "https://tinyurl.com/boiiiiiiiiiiiiiii"
     t.text "bio"
     t.string "img_url"
   end
