@@ -1,11 +1,20 @@
 module UsersHelper
 
-  def baccano_for(user, options = { size: 50 })
-    baccano_id = Digest::MD5::hexdigest(user.full_name.downcase)
-    size = options[:size]
-    baccano_url = "https://avatar.baccano.io"
-    image_tag(baccano_url, alt: user.full_name, class: "baccano")
-    #<img src="https://avatar.baccano.io/random" alt="Random avatar" />
-  end
+
+    def user_params(*args)
+      params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :bio, :img_url)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash.now[:message] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to :root unless current_user?(@user)
+    end
 
 end

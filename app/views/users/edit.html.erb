@@ -14,8 +14,11 @@
   <%= f.label :email %>:
   <%= f.email_field :email %><br />
 
-  <%= baccano_for @user %>
-      <a href="https://avatar.baccano.io/random" target="_blank">Change</a>
+  <%= f.label :bio %>:
+  <%= f.text_area :bio %><br />
+
+  <%= f.label :avatar %>
+      <a href="https://avatar.baccano.io/" target="_blank">Change</a>
 
   <% if @user.errors.any? %>
     <div>
